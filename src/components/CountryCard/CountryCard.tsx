@@ -1,8 +1,8 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Props } from "./CountryCard.types";
 import QuestionMarkIcon from "../../img/questionMark.svg";
 import * as Styles from "./CountryCard.styles";
-const CountryCard = ({ image, country }: Props) => {
+const CountryCard = ({ country }: Props) => {
   return (
     <Grid item>
       <Styles.CardLayout sx={{ maxWidth: 280 }}>

@@ -35,7 +35,7 @@ export const countrySlice = createSlice({
   reducers: {
     reset: (state) => initialState,
     setDetails: (state, action) => {
-      state.countries = merge([], state.countries, action.payload);
+      state.countries = action.payload;
     },
   },
   extraReducers(builder) {

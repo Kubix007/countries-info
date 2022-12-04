@@ -25,11 +25,6 @@ const CountryCardList = () => {
         alignItems="center"
         spacing={3}
       >
-        {/* {countries
-          ? countries.map((country) => (
-              <CountryCard key={country.id} country={country} />
-            ))
-          : null} */}
         {countries.map((country) => (
           <CountryCard key={country.id} country={country} />
         ))}

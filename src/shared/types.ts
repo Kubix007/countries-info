@@ -8,7 +8,6 @@ export interface ICountryState {
     flags: {
       svg: string;
     };
-    cioc: string;
   }[];
   isError: boolean;
   isSuccess: boolean;
@@ -25,5 +24,4 @@ export interface ICountry {
   flags: {
     svg: string;
   };
-  cioc: string;
 }
