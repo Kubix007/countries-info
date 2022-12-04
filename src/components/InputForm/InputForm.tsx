@@ -9,10 +9,10 @@ import { getCountryNames } from "../../features/country/countrySlice";
 const validationSchema = yup.object({
   amount: yup
     .number()
-    .typeError("To nie jest liczba ;)")
-    .required("Aby przejść dalej pole nie może być puste ;)")
-    .min(5, "Liczba chyba nie jest większa niż 5 ;)")
-    .max(20, "Liczba chyba nie jest mniejsza niż 20 ;)"),
+    .typeError("This is not a number ;)")
+    .required("To move on, the field must not be empty ;)")
+    .min(5, "The number is probably not more than 5 ;)")
+    .max(20, "The number is probably not less than 20 ;)"),
 });
 
 const InputForm = () => {
@@ -33,7 +33,7 @@ const InputForm = () => {
         fullWidth
         id="amount"
         name="amount"
-        label="Liczba państw"
+        label="Number of countries"
         value={formik.values.amount}
         onChange={formik.handleChange}
         error={formik.touched.amount && Boolean(formik.errors.amount)}
@@ -43,7 +43,7 @@ const InputForm = () => {
         }}
       />
       <Styles.SubmitButton variant="contained" fullWidth type="submit">
-        Zatwierdź
+        Confirm
       </Styles.SubmitButton>
     </form>
   );
