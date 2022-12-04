@@ -5,5 +5,6 @@ export const DetailsButton = styled(Button)`
   &.MuiButtonBase-root.MuiButton-root {
     background-color: #d4a373;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;

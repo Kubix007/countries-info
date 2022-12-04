@@ -14,26 +14,32 @@ const CountryCard = ({ country }: Props) => {
           image={country.flags ? `${country.flags}` : QuestionMarkIcon}
         />
         <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            textAlign="center"
-          >
+          <Styles.Title gutterBottom variant="h5" textAlign="center">
             {country.name}
-          </Typography>
+          </Styles.Title>
           <Typography variant="body2" color="text.secondary" textAlign="center">
-            <p>{`Capital: ${
-              country.capital ? country.capital : "No information found!"
-            }`}</p>
-            <p>{`Population: ${
-              country.population ? country.population : "No information found!"
-            }`}</p>
-            <p>{`Languages: ${
-              country.languages
-                ? country.languages.join()
-                : "No information found!"
-            }`}</p>
+            <Styles.Paragraph>
+              <Styles.Strong>Capital:</Styles.Strong>
+              {` ${
+                country.capital ? country.capital : "No information found!"
+              }`}
+            </Styles.Paragraph>
+            <Styles.Paragraph>
+              <Styles.Strong>Population:</Styles.Strong>
+              {` ${
+                country.population
+                  ? country.population
+                  : "No information found!"
+              }`}
+            </Styles.Paragraph>
+            <Styles.Paragraph>
+              <Styles.Strong>Languages:</Styles.Strong>{" "}
+              {` ${
+                country.languages
+                  ? country.languages.join()
+                  : "No information found!"
+              }`}
+            </Styles.Paragraph>
           </Typography>
         </CardContent>
       </Styles.CardLayout>

@@ -6,11 +6,11 @@ const StartupWindow = () => {
   return (
     <>
       <Grid item>
-        <Styles.Header variant="h1">Losowanie państw</Styles.Header>
+        <Styles.Header variant="h1">Country Draw</Styles.Header>
       </Grid>
       <Grid item>
         <Styles.SubHeader variant="h2">
-          Wprowadź ile razy chcesz wylosować państwo:
+          Enter how many times you want to draw a country:
         </Styles.SubHeader>
       </Grid>
       <Grid item>

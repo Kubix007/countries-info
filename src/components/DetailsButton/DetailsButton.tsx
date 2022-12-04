@@ -24,7 +24,7 @@ const DetailsButton = () => {
       color="primary"
       variant="contained"
     >
-      Pokaż szczegóły
+      Show details
     </Styles.DetailsButton>
   );
 };
