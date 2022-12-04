@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import InputForm from "../InputForm";
 import * as Styles from "./Layout.styles";
 
@@ -15,24 +15,12 @@ const Layout = () => {
         marginTop={0}
       >
         <Grid item>
-          <Typography
-            variant="h1"
-            fontSize="4em"
-            align="center"
-            fontFamily="Montserrat-SemiBold"
-          >
-            Generator państw
-          </Typography>
+          <Styles.Header variant="h1">Losowanie państw</Styles.Header>
         </Grid>
         <Grid item>
-          <Typography
-            variant="h2"
-            fontSize="2em"
-            align="center"
-            fontFamily="Montserrat-Regular"
-          >
-            Wprowadź ile razy chcesz wygenerować państwo:
-          </Typography>
+          <Styles.SubHeader variant="h2">
+            Wprowadź ile razy chcesz wylosować państwo:
+          </Styles.SubHeader>
         </Grid>
         <Grid item>
           <InputForm />

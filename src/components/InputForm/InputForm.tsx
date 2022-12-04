@@ -2,6 +2,9 @@ import { TextField } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import * as Styles from "./InputForm.styles";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../app/store";
+import { getCountries } from "../../features/country/countrySlice";
 
 const validationSchema = yup.object({
   amount: yup
@@ -13,13 +16,14 @@ const validationSchema = yup.object({
 });
 
 const InputForm = () => {
+  const dispatch: AppDispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       amount: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      dispatch(getCountries(values.amount));
     },
   });
   return (
