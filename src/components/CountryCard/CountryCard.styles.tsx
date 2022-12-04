@@ -2,8 +2,13 @@ import { Card, Typography } from "@mui/material";
 import styled from "styled-components";
 
 export const CardLayout = styled(Card)`
-  width: 450spx;
-  height: 500px;
+  &.MuiPaper-root {
+    width: 550spx;
+    height: 500px;
+    -webkit-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
+  }
 `;
 
 export const Strong = styled.strong`

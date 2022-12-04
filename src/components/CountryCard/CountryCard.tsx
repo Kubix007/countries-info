@@ -5,12 +5,11 @@ import * as Styles from "./CountryCard.styles";
 const CountryCard = ({ country }: Props) => {
   return (
     <Grid item>
-      <Styles.CardLayout sx={{ maxWidth: 280 }}>
+      <Styles.CardLayout sx={{ maxWidth: 280, maxHeight: 450 }}>
         <CardMedia
           component="img"
-          alt="green iguana"
-          height="280"
-          width="280"
+          alt={country.name}
+          height="200"
           image={country.flags ? `${country.flags}` : QuestionMarkIcon}
         />
         <CardContent>
@@ -28,7 +27,7 @@ const CountryCard = ({ country }: Props) => {
               <Styles.Strong>Population:</Styles.Strong>
               {` ${
                 country.population
-                  ? country.population
+                  ? new Intl.NumberFormat().format(+country.population)
                   : "No information found!"
               }`}
             </Styles.Paragraph>

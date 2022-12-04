@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ICountryState } from "../../shared/types";
 import countryService from "../../services/countryService";
-import merge from "lodash.merge";
 
 const initialState: ICountryState = {
   countries: [],

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { setDetails } from "../../features/country/countrySlice";
 import { ICountryState } from "../../shared/types";
-import axios from "axios";
 import countryDetailsService from "../../services/countryDetailsService";
 
 const DetailsButton = () => {
