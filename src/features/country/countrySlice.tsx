@@ -1,25 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ICountryState } from "../../shared/types";
-import countryService from "./countryService";
+import countryService from "../../services/countryService";
 
 const initialState: ICountryState = {
   countries: {
-    country: null,
-    population: "",
-    capital: "",
-    languages: "",
+    countryNames: [],
+    countryDetails: [],
   },
   isError: false,
   isSuccess: false,
   isLoading: false,
+  isLoaded: false,
 };
 
 //Get users
-export const getCountries = createAsyncThunk(
+export const getCountryNames = createAsyncThunk(
   "/countries/getAll",
   async (size: string, thunkAPI) => {
     try {
-      return await countryService.getCountries(size);
+      return await countryService.getCountryNames(size);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -40,17 +39,20 @@ export const countrySlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(getCountries.pending, (state) => {
+      .addCase(getCountryNames.pending, (state) => {
         state.isLoading = true;
+        state.isLoaded = false;
       })
-      .addCase(getCountries.fulfilled, (state, action) => {
+      .addCase(getCountryNames.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.countries = action.payload;
+        state.isLoaded = true;
+        state.countries.countryNames = action.payload;
       })
-      .addCase(getCountries.rejected, (state) => {
+      .addCase(getCountryNames.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
+        state.isLoaded = false;
       });
   },
 });

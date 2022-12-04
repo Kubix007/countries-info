@@ -1,8 +1,17 @@
 import { Grid } from "@mui/material";
-import InputForm from "../InputForm";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import * as Styles from "./Layout.styles";
+import StartupWindow from "../StartupWindow";
+import CountryCard from "../CountryCard";
+import { ICountryState } from "../../shared/types";
+import CountryCardList from "../CountryCardList";
 
 const Layout = () => {
+  const { isLoaded }: ICountryState = useSelector(
+    (state: RootState) => state.countries
+  );
+
   return (
     <Styles.LayoutContainer>
       <Grid
@@ -14,17 +23,7 @@ const Layout = () => {
         spacing={2}
         marginTop={0}
       >
-        <Grid item>
-          <Styles.Header variant="h1">Losowanie państw</Styles.Header>
-        </Grid>
-        <Grid item>
-          <Styles.SubHeader variant="h2">
-            Wprowadź ile razy chcesz wylosować państwo:
-          </Styles.SubHeader>
-        </Grid>
-        <Grid item>
-          <InputForm />
-        </Grid>
+        {isLoaded ? <CountryCardList /> : <StartupWindow />}
       </Grid>
     </Styles.LayoutContainer>
   );

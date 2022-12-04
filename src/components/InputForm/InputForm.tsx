@@ -4,7 +4,7 @@ import * as yup from "yup";
 import * as Styles from "./InputForm.styles";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
-import { getCountries } from "../../features/country/countrySlice";
+import { getCountryNames } from "../../features/country/countrySlice";
 
 const validationSchema = yup.object({
   amount: yup
@@ -17,13 +17,14 @@ const validationSchema = yup.object({
 
 const InputForm = () => {
   const dispatch: AppDispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       amount: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      dispatch(getCountries(values.amount));
+      dispatch(getCountryNames(values.amount));
     },
   });
   return (

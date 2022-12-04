@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://random-data-api.com/api/v2";
 
-const getCountries = async (size: string) => {
+const getCountryNames = async (size: string) => {
   const config = {
     params: {
       size: size,
@@ -10,11 +10,11 @@ const getCountries = async (size: string) => {
   };
   const response = await axios.get(API_URL + "/addresses", config);
 
-  return response.data;
+  return response.data.map((x: { country: string }) => x.country);
 };
 
 const countryService = {
-  getCountries,
+  getCountryNames,
 };
 
 export default countryService;
