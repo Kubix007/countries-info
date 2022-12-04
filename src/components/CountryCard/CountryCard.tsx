@@ -5,11 +5,11 @@ import * as Styles from "./CountryCard.styles";
 const CountryCard = ({ country }: Props) => {
   return (
     <Grid item>
-      <Styles.CardLayout sx={{ maxWidth: 280, maxHeight: 450 }}>
+      <Styles.CardLayout sx={{ maxWidth: 350, maxHeight: 900 }}>
         <CardMedia
           component="img"
           alt={country.name}
-          height="200"
+          height="280"
           image={country.flags ? `${country.flags}` : QuestionMarkIcon}
         />
         <CardContent>

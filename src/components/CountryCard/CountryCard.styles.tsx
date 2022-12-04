@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const CardLayout = styled(Card)`
   &.MuiPaper-root {
     width: 550spx;
-    height: 500px;
+    height: 550px;
     -webkit-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
     box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
@@ -26,5 +26,6 @@ export const Title = styled(Typography)`
   &.MuiTypography-root {
     font-family: Montserrat-SemiBold;
     color: black;
+    font-size: 20px;
   }
 `;
