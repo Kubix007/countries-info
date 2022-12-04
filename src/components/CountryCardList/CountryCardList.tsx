@@ -1,6 +1,6 @@
 import CountryCard from "../CountryCard/CountryCard";
 import { Grid } from "@mui/material";
-import { ICountry, ICountryState } from "../../shared/types";
+import { ICountryState } from "../../shared/types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import DetailsButton from "../DetailsButton";
