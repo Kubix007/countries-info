@@ -1,12 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ICountryState } from "../../shared/types";
 import countryService from "../../services/countryService";
+import merge from "lodash.merge";
 
 const initialState: ICountryState = {
-  countries: {
-    countryNames: [],
-    countryDetails: [],
-  },
+  countries: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -36,6 +34,9 @@ export const countrySlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => initialState,
+    setDetails: (state, action) => {
+      state.countries = merge([], state.countries, action.payload);
+    },
   },
   extraReducers(builder) {
     builder
@@ -47,7 +48,7 @@ export const countrySlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isLoaded = true;
-        state.countries.countryNames = action.payload;
+        state.countries = action.payload;
       })
       .addCase(getCountryNames.rejected, (state) => {
         state.isLoading = false;
@@ -57,5 +58,5 @@ export const countrySlice = createSlice({
   },
 });
 
-export const { reset } = countrySlice.actions;
+export const { reset, setDetails } = countrySlice.actions;
 export default countrySlice.reducer;

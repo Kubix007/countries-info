@@ -10,7 +10,13 @@ const getDetailsOfCountries = async (name: string) => {
   };
   const response = await axios.get(API_URL + `/${name}`, config);
 
-  return response.data;
+  return response.data.map((item: any) => ({
+    name: item.name.common,
+    languages: Object.values(item.languages),
+    population: item.population,
+    capital: item.capital[0],
+    flags: item.flags.svg,
+  }));
 };
 
 const countryDetailsService = {

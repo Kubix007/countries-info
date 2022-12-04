@@ -1,6 +1,6 @@
 import CountryCard from "../CountryCard/CountryCard";
 import { Grid } from "@mui/material";
-import { ICountryState } from "../../shared/types";
+import { ICountry, ICountryState } from "../../shared/types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import DetailsButton from "../DetailsButton";
@@ -24,10 +24,14 @@ const CountryCardList = () => {
         justifyContent="center"
         alignItems="center"
         spacing={3}
-        marginBottom={2}
       >
-        {countries.countryNames.map((country) => (
-          <CountryCard key={country} name={country} />
+        {/* {countries
+          ? countries.map((country) => (
+              <CountryCard key={country.id} country={country} />
+            ))
+          : null} */}
+        {countries.map((country) => (
+          <CountryCard key={country.id} country={country} />
         ))}
       </Grid>
       <DetailsButton />

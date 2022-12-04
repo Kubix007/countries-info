@@ -1,17 +1,17 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Props } from "./CountryCard.types";
 import QuestionMarkIcon from "../../img/questionMark.svg";
-
-const CountryCard = ({ image, name }: Props) => {
+import * as Styles from "./CountryCard.styles";
+const CountryCard = ({ image, country }: Props) => {
   return (
     <Grid item>
-      <Card sx={{ maxWidth: 360 }}>
+      <Styles.CardLayout sx={{ maxWidth: 280 }}>
         <CardMedia
           component="img"
           alt="green iguana"
           height="280"
           width="280"
-          src={QuestionMarkIcon}
+          image={country.flags ? `${country.flags}` : QuestionMarkIcon}
         />
         <CardContent>
           <Typography
@@ -20,15 +20,23 @@ const CountryCard = ({ image, name }: Props) => {
             component="div"
             textAlign="center"
           >
-            {name}
+            {country.name}
           </Typography>
           <Typography variant="body2" color="text.secondary" textAlign="center">
-            <p>{`Capital:`}</p>
-            <p>{`Population:`}</p>
-            <p>{`Languages:`}</p>
+            <p>{`Capital: ${
+              country.capital ? country.capital : "No information found!"
+            }`}</p>
+            <p>{`Population: ${
+              country.population ? country.population : "No information found!"
+            }`}</p>
+            <p>{`Languages: ${
+              country.languages
+                ? country.languages.join()
+                : "No information found!"
+            }`}</p>
           </Typography>
         </CardContent>
-      </Card>
+      </Styles.CardLayout>
     </Grid>
   );
 };

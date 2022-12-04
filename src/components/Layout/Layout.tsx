@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import * as Styles from "./Layout.styles";
 import StartupWindow from "../StartupWindow";
-import CountryCard from "../CountryCard";
 import { ICountryState } from "../../shared/types";
 import CountryCardList from "../CountryCardList";
 
@@ -21,7 +20,7 @@ const Layout = () => {
         justifyContent="center"
         minHeight="100vh"
         spacing={2}
-        marginTop={0}
+        marginTop={5}
       >
         {isLoaded ? <CountryCardList /> : <StartupWindow />}
       </Grid>
