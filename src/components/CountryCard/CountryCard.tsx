@@ -2,21 +2,28 @@ import { CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Props } from "./CountryCard.types";
 import QuestionMarkIcon from "../../img/questionMark.svg";
 import * as Styles from "./CountryCard.styles";
+
 const CountryCard = ({ country }: Props) => {
   return (
     <Grid item>
-      <Styles.CardLayout sx={{ maxWidth: 350, maxHeight: 900 }}>
+      <Styles.CardLayout>
         <CardMedia
           component="img"
           alt={country.name}
-          height="280"
+          height="200px"
           image={country.flags ? `${country.flags}` : QuestionMarkIcon}
+          sx={{ objectFit: "contain" }}
         />
         <CardContent>
           <Styles.Title gutterBottom variant="h5" textAlign="center">
             {country.name}
           </Styles.Title>
-          <Typography variant="body2" color="text.secondary" textAlign="center">
+          <Typography
+            variant="body2"
+            component="span"
+            color="text.secondary"
+            textAlign="center"
+          >
             <Styles.Paragraph>
               <Styles.Strong>Capital:</Styles.Strong>
               {` ${
@@ -27,12 +34,14 @@ const CountryCard = ({ country }: Props) => {
               <Styles.Strong>Population:</Styles.Strong>
               {` ${
                 country.population
-                  ? new Intl.NumberFormat().format(+country.population)
+                  ? typeof country.population === "number"
+                    ? new Intl.NumberFormat().format(+country.population)
+                    : country.population
                   : "No information found!"
               }`}
             </Styles.Paragraph>
             <Styles.Paragraph>
-              <Styles.Strong>Languages:</Styles.Strong>{" "}
+              <Styles.Strong>Languages:</Styles.Strong>
               {` ${
                 country.languages
                   ? country.languages.join()

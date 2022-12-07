@@ -13,6 +13,9 @@ const getCountryNames = async (size: string) => {
   return response.data.map((x: { country: string; id: string }) => ({
     id: x.id,
     name: x.country,
+    languages: ["????"],
+    population: "????",
+    capital: "????",
   }));
 };
 

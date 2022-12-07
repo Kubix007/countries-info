@@ -15,7 +15,6 @@ const DetailsButton = () => {
     countryDetailsService
       .getDetailsOfCountries(countries)
       .then((data) => dispatch(setDetails(data)));
-    //dispatch(setDetails(countryDetails));
   };
   return (
     <Styles.DetailsButton
