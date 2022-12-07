@@ -5,7 +5,7 @@ import { CardMediaProps } from "./CountryCard.types";
 export const CardLayout = styled(Card)`
   &.MuiPaper-root {
     width: 400px;
-    height: fit-content;
+    height: 400px;
     -webkit-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);
     box-shadow: 10px 10px 40px -3px rgba(0, 0, 0, 0.75);

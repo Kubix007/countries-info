@@ -21,6 +21,7 @@ const Layout = () => {
         minHeight="100vh"
         spacing={2}
         marginTop={5}
+        marginBottom={5}
       >
         {isLoaded ? <CountryListWindow /> : <StartupWindow />}
       </Grid>
