@@ -3,7 +3,6 @@ import { Grid } from "@mui/material";
 import { ICountryState } from "../../shared/types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import DetailsButton from "../DetailsButton";
 
 const CountryCardList = () => {
   const { countries }: ICountryState = useSelector(
@@ -29,7 +28,6 @@ const CountryCardList = () => {
           <CountryCard key={country.id} country={country} />
         ))}
       </Grid>
-      <DetailsButton />
     </Grid>
   );
 };

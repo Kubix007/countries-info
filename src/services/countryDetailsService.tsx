@@ -36,6 +36,7 @@ const getDetailsOfCountries = async (countryName: any) => {
       };
       results.push(emptyCountry);
     }
+    return null;
   });
 
   return results

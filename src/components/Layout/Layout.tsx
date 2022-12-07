@@ -4,7 +4,7 @@ import { RootState } from "../../app/store";
 import * as Styles from "./Layout.styles";
 import StartupWindow from "../StartupWindow";
 import { ICountryState } from "../../shared/types";
-import CountryCardList from "../CountryCardList";
+import CountryListWindow from "../CountryListWindow";
 
 const Layout = () => {
   const { isLoaded }: ICountryState = useSelector(
@@ -22,7 +22,7 @@ const Layout = () => {
         spacing={2}
         marginTop={5}
       >
-        {isLoaded ? <CountryCardList /> : <StartupWindow />}
+        {isLoaded ? <CountryListWindow /> : <StartupWindow />}
       </Grid>
     </Styles.LayoutContainer>
   );
